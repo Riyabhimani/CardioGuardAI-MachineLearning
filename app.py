@@ -214,11 +214,11 @@ def load_css():
             overflow: visible;
         }
         
-        @keyframes gradient-animation {
+        @keyframes gradient-animation {{
             0% {{ background-position: 0% 50%; }}
             50% {{ background-position: 100% 50%; }}
             100% {{ background-position: 0% 50%; }}
-        }
+        }}
         
         .hero-badge {
             display: inline-block;
@@ -253,11 +253,11 @@ def load_css():
         }
 
         /* FLOATING VISUAL ANIMATION */
-        @keyframes float {
+        @keyframes float {{
             0% {{ transform: translateY(0px); }}
             50% {{ transform: translateY(-20px); }}
             100% {{ transform: translateY(0px); }}
-        }
+        }}
 
         .visual-container {
             position: relative;
@@ -417,10 +417,10 @@ def load_css():
             animation: fadeIn 1s ease;
         }
         
-        @keyframes fadeIn {
+        @keyframes fadeIn {{
             from {{ opacity: 0; transform: translateY(20px); }}
             to {{ opacity: 1; transform: translateY(0); }}
-        }
+        }}
         
         .factor-card {
             background: #f1f5f9;
@@ -436,11 +436,11 @@ def load_css():
         }
 
         /* CAUTION PAGE STYLES */
-        @keyframes pulse-red {
+        @keyframes pulse-red {{
             0% {{ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }}
             70% {{ box-shadow: 0 0 0 20px rgba(239, 68, 68, 0); }}
             100% {{ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }}
-        }
+        }}
         
         .emergency-banner {
             background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 100%);
