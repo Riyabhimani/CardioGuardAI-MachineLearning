@@ -39,9 +39,6 @@ st.set_page_config(
 # CUSTOM CSS & ASSETS
 # -----------------------------------------------------------------------------
 def load_css():
-    if st.session_state.get("css_loaded", False):
-        return
-
     theme = st.session_state.get("theme", "light")
         
     if theme == "dark":
@@ -60,11 +57,6 @@ def load_css():
         
     st.markdown(f"""
         <style>
-         html, body, [class*="css"] {{
-            background: {bg};
-            color: {text};
-            font-family: 'Inter', sans-serif;
-        }}
 
         .block-container {{
             padding-top: 2rem !important;
@@ -125,7 +117,7 @@ def load_css():
             position: sticky;
             top: 0;
             z-index: 999;
-            background: rgba(255, 255, 255, 0.8);
+            background: {card};
             backdrop-filter: blur(25px) saturate(200%);
             -webkit-backdrop-filter: blur(25px) saturate(200%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.6);
@@ -285,7 +277,7 @@ def load_css():
 
         /* FEATURE CARDS IMPROVED */
         .feature-card-p {{
-            background: white;
+            background: {card};
             padding: 2.5rem;
             border-radius: 1.5rem;
             border: 1px solid #f1f5f9;
@@ -416,7 +408,7 @@ def load_css():
 
         /* RESULT CARDS - ENHANCED */
         .result-container {{
-            background: white;
+            background: {card};
             border-radius: 2rem;
             box-shadow: 0 20px 50px -10px rgba(0,0,0,0.1);
             overflow: hidden;
@@ -471,7 +463,7 @@ def load_css():
         }}
 
         .symptom-card {{
-            background: white;
+            background: {card};
             padding: 2rem;
             border-radius: 1rem;
             border-left: 5px solid #ef4444;
@@ -494,7 +486,7 @@ def load_css():
 
         /* ABOUT SECTION */
         .about-card {{
-            background: white;
+            background: {card};
             padding: 2.5rem;
             border-radius: 1.5rem;
             border: 1px solid #f1f5f9;
@@ -534,7 +526,6 @@ def load_css():
 
         </style>
     """, unsafe_allow_html=True)
-    st.session_state.css_loaded = True
 
 # -----------------------------------------------------------------------------
 # THEME STATE
@@ -587,9 +578,8 @@ def render_navbar():
         if st.button("Caution", use_container_width=True):
             navigate_to('caution')
     with col6:
-        if st.button("🌙" if st.session_state.theme == "light" else "☀️"):
+       if st.button("🌙" if st.session_state.theme == "light" else "☀️"):
             toggle_theme()
-            st.session_state.css_loaded = False   # force reload
             st.rerun()
             
     st.markdown('</div>', unsafe_allow_html=True)
