@@ -39,18 +39,22 @@ st.set_page_config(
 # CUSTOM CSS & ASSETS
 # -----------------------------------------------------------------------------
 def load_css():
-    theme = st.session_state.get("theme", "light")
+    if st.session_state.get("css_loaded", False):
+        return
 
+    theme = st.session_state.get("theme", "light")
+        
     if theme == "dark":
         bg = "#0f172a"
-        card = "#1e293b"
         text = "#f1f5f9"
         subtext = "#94a3b8"
+        bg_style = "#0f172a"
     else:
         bg = "#f8fafc"
-        card = "#ffffff"
         text = "#1e293b"
         subtext = "#64748b"
+        bg_style = "linear-gradient(to bottom right, #f8fafc, #e0f2fe)"
+
         
     st.markdown(f"""
         <style>
@@ -97,8 +101,8 @@ def load_css():
         /* GLOBAL STYLES */
         html, body, [class*="css"] {{
             font-family: 'Inter', sans-serif;
-            background = f"background: {bg};" if theme == "dark" else "background: linear-gradient(to bottom right, #f8fafc, #e0f2fe);" fixed; /* Premium Medical Gradient */
-            color: var(--text-primary);
+            background: {bg_style};
+            color: {text};
             scroll-behavior: smooth;
         }}
 
@@ -528,6 +532,7 @@ def load_css():
 
         </style>
     """, unsafe_allow_html=True)
+    st.session_state.css_loaded = True
 
 # -----------------------------------------------------------------------------
 # THEME STATE
@@ -582,6 +587,7 @@ def render_navbar():
     with col6:
         if st.button("🌙" if st.session_state.theme == "light" else "☀️"):
             toggle_theme()
+            st.session_state.css_loaded = False   # force reload
             st.rerun()
             
     st.markdown('</div>', unsafe_allow_html=True)
