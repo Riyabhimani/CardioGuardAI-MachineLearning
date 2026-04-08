@@ -110,9 +110,9 @@ def load_css():
         }}
         
         /* HIDE DEFAULT HEADER/FOOTER */
-        header {visibility: hidden;}
-        footer {visibility: hidden;}
-        #MainMenu {visibility: hidden;}
+        header {{visibility: hidden;}}
+        footer {{visibility: hidden;}}
+        #MainMenu {{visibility: hidden;}}
 
         /* --- EYE-CATCHY NAVBAR STYLES --- */
         .navbar-container {{
