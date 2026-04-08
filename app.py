@@ -555,7 +555,7 @@ def navigate_to(page):
 def render_navbar():
     st.markdown('<div class="navbar-container">', unsafe_allow_html=True)
     
-    col1, col2, col3, col4, col5 = st.columns([3,1,1,1,1])
+    col1, col2, col3, col4, col5, col6 = st.columns([3,1,1,1,1,1])
 
     
     with col1:
