@@ -552,11 +552,11 @@ def render_hero():
     with c1:
         st.markdown("""
             <div class="hero-section">
-                <div class="hero-badge">✨ Precision Medicine v2.0</div>
+                <div class="hero-badge">🧠 AI-Powered Cardiac Intelligence</div>
                 <h1 class="hero-title">Cardiology at Your<br>Fingertips</h1>
                 <p class="hero-desc">
-                    Experience the future of heart health. Our clinical-grade AI analyzes your biomarkers 
-                    to detect cardiovascular risks with unprecedented accuracy.
+                    Experience next-generation heart health insights powered by intelligent AI. 
+                    Analyze vital biomarkers and detect cardiovascular risks with clinical-level precision.
                 </p>
             </div>
         """, unsafe_allow_html=True)
