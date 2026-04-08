@@ -52,7 +52,7 @@ def load_css():
         text = "#1e293b"
         subtext = "#64748b"
         
-    st.markdown("""
+    st.markdown(f"""
         <style>
          html, body, [class*="css"] {{
             background: {bg};
@@ -97,7 +97,7 @@ def load_css():
         /* GLOBAL STYLES */
         html, body, [class*="css"] {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(to bottom right, #f8fafc, #e0f2fe) fixed; /* Premium Medical Gradient */
+            background = f"background: {bg};" if theme == "dark" else "background: linear-gradient(to bottom right, #f8fafc, #e0f2fe);" fixed; /* Premium Medical Gradient */
             color: var(--text-primary);
             scroll-behavior: smooth;
         }
