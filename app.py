@@ -49,11 +49,13 @@ def load_css():
         text = "#f1f5f9"
         subtext = "#94a3b8"
         bg_style = "#0f172a"
+        card = "#1e293b" 
     else:
         bg = "#f8fafc"
         text = "#1e293b"
         subtext = "#64748b"
         bg_style = "linear-gradient(to bottom right, #f8fafc, #e0f2fe)"
+        card = "#ffffff"
 
         
     st.markdown(f"""
