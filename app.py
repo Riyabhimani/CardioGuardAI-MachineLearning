@@ -254,9 +254,9 @@ def load_css():
 
         /* FLOATING VISUAL ANIMATION */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+            0% {{ transform: translateY(0px); }}
+            50% {{ transform: translateY(-20px); }}
+            100% {{ transform: translateY(0px); }}
         }
 
         .visual-container {
@@ -418,8 +418,8 @@ def load_css():
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {{ opacity: 0; transform: translateY(20px); }}
+            to {{ opacity: 1; transform: translateY(0); }}
         }
         
         .factor-card {
@@ -437,9 +437,9 @@ def load_css():
 
         /* CAUTION PAGE STYLES */
         @keyframes pulse-red {
-            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-            70% { box-shadow: 0 0 0 20px rgba(239, 68, 68, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+            0% {{ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }}
+            70% {{ box-shadow: 0 0 0 20px rgba(239, 68, 68, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }}
         }
         
         .emergency-banner {
