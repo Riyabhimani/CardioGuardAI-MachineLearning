@@ -39,8 +39,45 @@ st.set_page_config(
 # CUSTOM CSS & ASSETS
 # -----------------------------------------------------------------------------
 def load_css():
+    theme = st.session_state.get("theme", "light")
+
+    if theme == "dark":
+        bg = "#0f172a"
+        card = "#1e293b"
+        text = "#f1f5f9"
+        subtext = "#94a3b8"
+    else:
+        bg = "#f8fafc"
+        card = "#ffffff"
+        text = "#1e293b"
+        subtext = "#64748b"
+        
     st.markdown("""
         <style>
+         html, body, [class*="css"] {{
+            background: {bg};
+            color: {text};
+            font-family: 'Inter', sans-serif;
+        }}
+
+        .block-container {{
+            padding-top: 2rem !important;
+            max-width: 1200px !important;
+        }}
+
+        .feature-card-p, .about-card, .form-card, .result-container {{
+            background: {card};
+            color: {text};
+        }}
+
+        p, span {{
+            color: {subtext};
+        }}
+
+        /* BUTTON */
+        div.stButton > button {{
+            border-radius: 30px;
+        }}
         /* IMPORT FONTS */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
@@ -542,6 +579,10 @@ def render_navbar():
     with col5:
         if st.button("Caution", use_container_width=True):
             navigate_to('caution')
+    with col6:
+        if st.button("🌙" if st.session_state.theme == "light" else "☀️"):
+            toggle_theme()
+            st.rerun()
             
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -1128,6 +1169,11 @@ def render_about():
                     <div style="font-size: 0.85rem; color: #64748b;">Test: <span style="color: #10b981; font-weight: 600;">{scores['Test']}%</span></div>
                 </div>
             """, unsafe_allow_html=True)
+if "theme" not in st.session_state:
+    st.session_state.theme = "light"
+
+def toggle_theme():
+    st.session_state.theme = "dark" if st.session_state.theme == "light" else "light"
 
 def render_footer():
     st.markdown("""
@@ -1143,15 +1189,6 @@ def render_footer():
 # -----------------------------------------------------------------------------
 load_css()
 render_navbar()
-
-st.markdown(
-    f"""
-    <script>
-        document.body.setAttribute("data-theme", "{st.session_state.theme}");
-    </script>
-    """,
-    unsafe_allow_html=True
-)
 
 
 if st.session_state.page == 'home':
