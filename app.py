@@ -1132,8 +1132,9 @@ def render_about():
 def render_footer():
     st.markdown("""
         <div class="footer">
-            <div class="footer-brand">CardioGuard AI | Developed by Riya Bhimani</div>
+            <div class="footer-brand">CardioGuard AI</div>
             <p style="color: #94a3b8;">Transforming Cardiac Care with Intelligence</p>
+            <p style="color: #94a3b8;">Developed by Riya Bhimani</p>
         </div>
     """, unsafe_allow_html=True)
 
